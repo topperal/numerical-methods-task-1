@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 using namespace std;
 
-const unsigned int n = 5;
+const unsigned int n = 3;
 
 double mA[n][n] = {
     { 15, 1, 1 },
@@ -12,7 +12,7 @@ double mA[n][n] = {
 double mB[n] = { 17, 19, 21 };
 
 
-double mRes[n] = { 0,0,0,0,0 };
+double mRes[n] = { 0,0,0};
 
 void mPrint() {                             // вывод матрицы двумерной
     for (int i = 0; i < n; i++) {
