@@ -3,14 +3,6 @@ using namespace std;
 
 const unsigned int n = 5;
 
-//double mA[n][n] = {
-//    { 15, 1, 1 },
-//    { 1, 17, 1},
-//    { 1, 1, 19 }
-//};
-//
-//double mB[n] = { 17, 19, 21 };
-
 // плохо обусловленная СЛАУ 3х3
 
 //double mA[3][3] = {
@@ -76,14 +68,11 @@ void mPrint() {                             // вывод матрицы дву�
 }
 // НАЧАЛО МЕТОДА ГАУССА
 void mDivisionRaw(int nraw, int ncolumn) {          // делили строку на первый элемент
-    //mPrint();
     double start = mA[nraw][ncolumn];
     for (int i = ncolumn; i < n; i++) {
         mA[nraw][i] /= start;
     }
     mB[nraw] /= start;
-    //mPrint();
-    //cout << endl;
 }
 
 void mSub(int nraw) {                               // вычитали предыдущую строку
@@ -107,31 +96,6 @@ void mFind(int nraw) {                          // находили решени
     mRes[nraw] = mB[nraw] - res;
 }
 // КОНЕЦ МЕТОДА ГАУССА
-// НАЧАЛО ЗЕЙДЕЛЬ
-double mEps[n] = { 0, 0, 0 };
-double EPS = 0.000001;
-
-void zeidelResRow(int nraw) {
-    double res = mB[nraw]/mA[nraw][nraw];
-    for (int i = 0; i < n; i++) {
-        if (i != nraw) {
-            res -= mA[nraw][i] / mA[nraw][nraw] * mRes[i];
-        }
-    }
-    mEps[nraw] = fabs(mRes[nraw]-res);
-    mRes[nraw] = res;
-}
-
-double maxEps() {
-    double res = mEps[0];
-    for (int i = 1; i < n; i++) {
-        if (res < mEps[i]) {
-            res = mEps[i];
-        }
-    }
-    return res;
-}
-// КОНЕЦ ЗЕЙДЕЛЯ
 
 void mSum() {
     for (int i = 0; i < n; i++) {
@@ -144,24 +108,7 @@ void mSum() {
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    //cout << "Метод Зейделя" << endl;
     mSum();
-    //mPrint();
-    //cout << endl;
-    //do {
-    //    cout << endl;
-    //    for(int i=0; i<n; i++)
-    //    zeidelResRow(i);
-    //    cout << "X array " << endl;
-    //    for (int i = 0; i < n; i++) {
-    //        cout << mRes[i] << " ";
-    //    }
-    //    //cout << endl << "Max e " << maxEps() << endl << "Eps array " << endl;
-    //    //for (int i = 0; i < n; i++) {
-    //    //    cout << mEps[i] << " ";
-    //    //}
-    //    //cout << endl;
-    //} while (maxEps() > EPS);
 
     // ГАУСС
     cout << "Метод Гаусса" << endl;
@@ -176,13 +123,7 @@ int main()
         }
     }
     
-    //mPrint();
-    //cout << endl;
     mRes[n-1] = mB[n-1];
-    //for (int i = 0; i < n; i++) {
-    //    cout << mRes[i] << " ";
-    //}
-    //cout << endl;
     mDivisionRaw(2, 2);
     for (int i = n - 2; i >= 0; i--) {
         mFind(i);
