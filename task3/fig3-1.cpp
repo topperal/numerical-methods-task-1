@@ -47,9 +47,7 @@ int main()
    cout << "|f(x_k)/f'(x_k)| < 0.0001" << endl;
    cout << "x_n: " << root << endl;
    while (fabs(h_function(root)) >= eps) {
-           //cout << "root: " << root << endl;
            next = root + h_function(root);
-           //cout << "[" << root << "; " << next << "]" << endl;
            root = next;
            cout << "x_n: " << next << endl;
     }
