@@ -1,2 +1,2 @@
 # numerical-methods-tasks
-Solve task №1, №2 & №3 from class "The numerical methods"
+Solve task №1, №2 & №3 from class "The numerical methods" with rus comments
