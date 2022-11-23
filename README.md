@@ -4,3 +4,5 @@ Solve task №1, №2 & №3 from class "The numerical methods" with rus comment
 5th term
 Solve task №4 from class "The numerical methods" with rus comments
 №4 - Implemented steepest gradient descent method (МНГС) and steepest coordinate descent method (МНПС)
+№5 - Interpolation using Lagrange (n-nods)
+№6 - Approximation with least squares and Legendre
